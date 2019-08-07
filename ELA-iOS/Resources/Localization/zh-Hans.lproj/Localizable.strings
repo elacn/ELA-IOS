@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ELA-iOS
+
+  Created by apple on 2019/7/30.
+  Copyright © 2019年 Jacob Zhang. All rights reserved.
+*/
+"HomeTabBarTitle" = "主页";
+"MineTabBarTitle" = "我的";
+"ViewString" = "阅读";
+"DownloadNotification" = "下载中";
