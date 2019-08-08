@@ -14,30 +14,38 @@
     
     NSArray<NSString*> *time = [_start componentsSeparatedByString:@":"];
     
-    NSInteger date = 0;
+    NSArray<NSString *> *millisecond = [time[2] componentsSeparatedByString:@"."];
     
-    date +=  [time[0] integerValue] * 3600000;
+    float date = 0;
     
-    date +=  [time[1] integerValue] * 60000;
+    date +=  [time[0] floatValue] * 60 * 60 * 1000;
     
-    date +=  [time[2] integerValue] * 1000;
+    date +=  [time[1] floatValue] * 60 * 1000;
     
-    return [NSString stringWithFormat:@"%ld",date];
+    date +=  [millisecond.firstObject floatValue] * 1000;
+    
+    date += [millisecond.lastObject floatValue] * 10;
+    
+    return [NSString stringWithFormat:@"%f",date];
 }
 
 - (NSString *)end{
     
     NSArray<NSString*> *time = [_end componentsSeparatedByString:@":"];
     
-    NSInteger date = 0;
+    NSArray<NSString *> *millisecond = [time[2] componentsSeparatedByString:@"."];
     
-    date +=  [time[0] integerValue] * 3600000;
+    float date = 0;
     
-    date +=  [time[1] integerValue] * 60000;
+    date +=  [time[0] floatValue] * 3600000;
     
-    date +=  [time[2] integerValue] * 1000;
+    date +=  [time[1] floatValue] * 60000;
     
-    return [NSString stringWithFormat:@"%ld",date];
+    date +=  [millisecond.firstObject floatValue] * 1000;
+    
+    date += [millisecond.lastObject floatValue] * 10;
+    
+    return [NSString stringWithFormat:@"%f",date];
 }
 
 @end

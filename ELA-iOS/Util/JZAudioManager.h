@@ -49,7 +49,7 @@ typedef NS_ENUM(NSUInteger, JZAudioState) {
 
 - (void)nextWithUrl:(NSString *)url;
 
-- (void)seekTo:(long long)time completionHandler:(void(^)(BOOL finished))handler;
+- (void)seekTo:(float)time completionHandler:(void(^)(BOOL finished))handler;
 
 
 

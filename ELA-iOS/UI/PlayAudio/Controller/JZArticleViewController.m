@@ -14,8 +14,9 @@
 #import "TextModel.h"
 #import "JZAudioManager.h"
 #import <SVProgressHUD.h>
+#import <AFNetworking.h>
 
-@interface JZArticleViewController ()<UITableViewDataSource>
+@interface JZArticleViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) JZArticleCustomHeader *headerView;
@@ -45,6 +46,26 @@
     
 }
 
+- (void)downloadFile{
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURL *URL = [NSURL URLWithString:self.model.data.url];
+    
+    NSURLRequest *req = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:req progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
+    }];
+    
+    [downloadTask resume];
+}
+
 -(void)textToModelArray{
     
     
@@ -62,7 +83,11 @@
     
     __weak JZArticleViewController *weakSelf = self;
     
-    [[JZAudioManager managerWithUrl:weakSelf.model.data.url] play];
+//    [[JZAudioManager managerWithUrl:weakSelf.model.data.url] play];
+    
+    NSString *url = [[NSBundle mainBundle] pathForResource:@"hello" ofType:@"wav"];
+    
+    [[JZAudioManager managerWithUrl:url] play];
 
     [JZAudioManager manager].downloadBlock = ^(double progress) {
       
@@ -70,7 +95,6 @@
 
             if(!weakSelf.DownloadComplete){
                 [SVProgressHUD dismiss];
-                
                 weakSelf.DownloadComplete = YES;
                [weakSelf playWithTimer:weakSelf.datasource.firstObject.end.doubleValue];
             }
@@ -82,14 +106,21 @@
 
 -(void)playWithTimer:(NSTimeInterval)Time{
     
+    if(self.tableView.isDragging || self.tableView.isDecelerating){
+        
+    }else{
+    
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.playIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        
+    }
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.playIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+    
     self.playIndex++;
     if(self.playIndex >= self.datasource.count-1) self.playIndex = 0;
     
-    
     __weak JZArticleViewController *weakSelf = self;
      NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:Time * 0.001 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        
-        [weakSelf.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:weakSelf.playIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
         
         TextModel *model = weakSelf.datasource[weakSelf.playIndex];
 
@@ -134,6 +165,8 @@
     
     self.tableView.dataSource = self;
     
+    self.tableView.delegate = self;
+    
     [self.tableView registerClass:[JZArticleTableViewCell class] forCellReuseIdentifier:@"ArticleCell"];
     
     [self.tableView reloadData];
@@ -147,13 +180,30 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     JZArticleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleCell" forIndexPath:indexPath];
     
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.model = self.datasource[indexPath.row];
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.timer invalidate];
+    
+    self.playIndex = indexPath.row;
+    
+    [[JZAudioManager manager]pause];
+    
+    TextModel *model = self.datasource[indexPath.row];
+
+    __weak JZArticleViewController *weakSelf = self;
+    [[JZAudioManager manager] seekTo:model.start.floatValue * 0.001 completionHandler:^(BOOL finished) {
+        [[JZAudioManager manager] play];
+        [weakSelf playWithTimer:model.end.floatValue - model.start.floatValue];
+    }];
+    
+}
 
 - (void)dealloc{
     

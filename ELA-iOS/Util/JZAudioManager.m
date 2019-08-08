@@ -42,7 +42,6 @@
         URL = [NSURL URLWithString:url];
     }
     sharedInstance.URL = URL;
-    
     [sharedInstance setupPlayer];
     return sharedInstance;
 }
@@ -79,15 +78,15 @@
     [self play];
 }
 
--(void)seekTo:(long long)time completionHandler:(void(^)(BOOL finished))handler{
+-(void)seekTo:(float)time completionHandler:(void(^)(BOOL finished))handler{
     
-    AVAsset *asset = [AVAsset assetWithURL:self.URL];
+//    CMTime startTime =  CMTimeMake(time * asset.duration.timescale, asset.duration.timescale);
     
-    CMTime startTime =  CMTimeMake(time * asset.duration.timescale, asset.duration.timescale);
+    CGFloat f = self.player.currentItem.asset.duration.timescale;
     
-    [self.player seekToTime:startTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:handler];
+    CMTime startTime = CMTimeMakeWithSeconds(time, 2);
     
-    [self.player seekToTime:startTime toleranceBefore:startTime toleranceAfter:startTime completionHandler:handler];
+    [self.player seekToTime:startTime toleranceBefore:CMTimeMake(1, self.player.currentItem.asset.duration.timescale) toleranceAfter:kCMTimeZero completionHandler:handler];
    
 }
 

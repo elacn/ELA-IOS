@@ -29,6 +29,20 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
+    if (selected) {
+        _englishYYLabel.textColor = [UIColor greenColor];
+        
+        _chineseLabel.textColor = [UIColor greenColor];
+    
+    }
+    
+    else{
+        _englishYYLabel.textColor = [UIColor blackColor];
+        
+        _chineseLabel.textColor = [UIColor blackColor];
+    }
+    
+    
     // Configure the view for the selected state
 }
 
