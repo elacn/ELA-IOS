@@ -1,2 +1,2 @@
 # ELA-IOS
-IOS Version of the ELA Android app, mimicking the VOA App
+iOS Version of the English Learning iOS App, mimicking The Voice of America App
