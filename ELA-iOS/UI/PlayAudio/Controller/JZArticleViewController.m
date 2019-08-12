@@ -9,17 +9,24 @@
 #import "JZArticleViewController.h"
 #import "JZArticleCustomHeader.h"
 #import "JZArticleTableViewCell.h"
+
+#import "JZAudioManager.h"
+#import "TextModel.h"
+#import "ZYTranslateView.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <YYModel.h>
-#import "TextModel.h"
-#import "JZAudioManager.h"
 #import <SVProgressHUD.h>
 #import <AFNetworking.h>
+
+
 
 @interface JZArticleViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) JZArticleCustomHeader *headerView;
+
+@property (strong, nonatomic) ZYTranslateView *translateView;
 
 @property (nonatomic, strong) NSMutableArray<TextModel*> *datasource;
 
@@ -33,6 +40,17 @@
 
 @implementation JZArticleViewController
 
+- (ZYTranslateView *)translateView{
+    
+    if(!_translateView){
+        
+        _translateView = [ZYTranslateView loadXIBTranslateView];
+        _translateView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width, 200);
+    }
+    
+    return _translateView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -44,7 +62,17 @@
     
     [self textToModelArray];
     
+    [self setupTranslateView];
+    
 }
+
+- (void)setupTranslateView{
+    
+    [self.view addSubview:self.translateView];
+    
+    [self.translateView showWithAnimated:YES];
+}
+
 
 - (void)downloadFile{
     
@@ -83,11 +111,11 @@
     
     __weak JZArticleViewController *weakSelf = self;
     
-//    [[JZAudioManager managerWithUrl:weakSelf.model.data.url] play];
+    [[JZAudioManager managerWithUrl:weakSelf.model.data.url] play];
     
-    NSString *url = [[NSBundle mainBundle] pathForResource:@"hello" ofType:@"wav"];
+//    NSString *url = [[NSBundle mainBundle] pathForResource:@"hello" ofType:@"wav"];
     
-    [[JZAudioManager managerWithUrl:url] play];
+//    [[JZAudioManager managerWithUrl:url] play];
 
     [JZAudioManager manager].downloadBlock = ^(double progress) {
       

@@ -47,7 +47,7 @@
 }
 - (void)setupPlayer{
     
-    #warning there is a leak here
+    #warning there is a leak here, Need to fix.
     self.player = [AVPlayer playerWithPlayerItem:[[AVPlayerItem alloc] initWithURL:self.URL]];
     
     
@@ -82,7 +82,7 @@
     
 //    CMTime startTime =  CMTimeMake(time * asset.duration.timescale, asset.duration.timescale);
     
-    CGFloat f = self.player.currentItem.asset.duration.timescale;
+//    CGFloat f = self.player.currentItem.asset.duration.timescale;
     
     CMTime startTime = CMTimeMakeWithSeconds(time, 2);
     
