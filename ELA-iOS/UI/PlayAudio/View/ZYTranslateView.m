@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIStackView *StackView;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
+
 @end
 
 @implementation ZYTranslateView
@@ -47,5 +48,10 @@
         
     }];
 }
+
+- (IBAction)closeTranslateAction:(UIButton *)sender {
+    [self hiddenWithAnimated:YES];
+}
+
 
 @end

@@ -233,6 +233,9 @@ Cg
                             <state key="normal" title="关闭">
                                 <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </state>
+                            <connections>
+                                <action selector="closeTranslateAction:" destination="MRq-f6-gWp" eventType="touchUpInside" id="Zbs-8K-6Gg"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

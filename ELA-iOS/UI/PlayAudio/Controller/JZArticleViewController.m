@@ -19,6 +19,8 @@
 #import <SVProgressHUD.h>
 #import <AFNetworking.h>
 
+#import "ExtAudioConverter.h"
+
 
 
 @interface JZArticleViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -60,9 +62,9 @@
     
     [self setupTableView];
     
-    [self textToModelArray];
-    
     [self setupTranslateView];
+    
+    [self downloadFile];
     
 }
 
@@ -84,17 +86,62 @@
     
     NSURLRequest *req = [NSURLRequest requestWithURL:URL];
     
+    weakSelf(self);
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:req progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        
+        NSString *filePath = [[documentsDirectoryURL absoluteString] stringByAppendingPathComponent:@"DownloadAudioFile"];
+    
+        return [NSURL URLWithString:[filePath stringByAppendingPathComponent:[response suggestedFilename]]];
+
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         NSLog(@"File downloaded to: %@", filePath);
+        
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        
+        NSString  *downloadAudioFile = [[documentsDirectoryURL absoluteString] stringByAppendingPathComponent:@"DownloadAudioFile"];
+    
+        NSString  *fileName = [response.suggestedFilename componentsSeparatedByString:@"."].firstObject;
+        
+        NSString  *outputFile = [downloadAudioFile stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",fileName]];
+        
+        [weakself checkFilePatch:downloadAudioFile];
+        
+        
+        ExtAudioConverter* converter = [[ExtAudioConverter alloc] init];
+        converter.inputFile = [filePath absoluteString];
+        converter.outputFile = outputFile;
+        [converter convert];
+        
+        [weakself textToModelArray:outputFile];
+        
+        if(error) [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"DownloadError", @"Download Error")];
+        
     }];
     
     [downloadTask resume];
 }
 
--(void)textToModelArray{
+- (void)checkFilePatch:(NSString *)rarFilePath{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    // fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
+    BOOL existed = [fileManager fileExistsAtPath:rarFilePath isDirectory:&isDir];
+
+    if (!(isDir == YES && existed == YES) ) {//如果文件夹不存在
+        NSError *err;
+        
+        [fileManager createDirectoryAtPath:rarFilePath withIntermediateDirectories:YES attributes:nil error:&err];
+        
+        if(err){
+            
+            NSLog(@"%@",err);
+        }
+    }
+}
+
+-(void)textToModelArray:(NSString *)audioFile{
     
     
     NSArray<NSString*> *textModel =  [self.model.data.text componentsSeparatedByString:@"\r\n"];
@@ -110,12 +157,8 @@
     [self.tableView reloadData];
     
     __weak JZArticleViewController *weakSelf = self;
-    
-    [[JZAudioManager managerWithUrl:weakSelf.model.data.url] play];
-    
-//    NSString *url = [[NSBundle mainBundle] pathForResource:@"hello" ofType:@"wav"];
-    
-//    [[JZAudioManager managerWithUrl:url] play];
+
+    [[JZAudioManager managerWithUrl:audioFile] play];
 
     [JZAudioManager manager].downloadBlock = ^(double progress) {
       
