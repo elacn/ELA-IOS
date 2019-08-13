@@ -42,6 +42,7 @@
         URL = [NSURL URLWithString:url];
     }
     sharedInstance.URL = URL;
+    sharedInstance.speed = 1;
     [sharedInstance setupPlayer];
     return sharedInstance;
 }
@@ -52,6 +53,7 @@
     
     
     self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+    
 }
 
 -(void)play{
@@ -59,8 +61,10 @@
 
     [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     [self.player.currentItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.player.currentItem];
 
     [self.player play];
+    self.player.rate = self.speed;
 }
 
 -(void)pause{
@@ -89,6 +93,17 @@
     [self.player seekToTime:startTime toleranceBefore:CMTimeMake(1, self.player.currentItem.asset.duration.timescale) toleranceAfter:kCMTimeZero completionHandler:handler];
    
 }
+
+-(void)moviePlayDidEnd:(NSNotification*)notification{
+//    AVPlayerItem*item = [notification object];
+//
+//    [item seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
+//
+//    }];
+//
+//    [self.player play];
+}
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     
@@ -144,11 +159,17 @@
     __weak JZAudioManager *weakself = self;
     [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 10.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         
-        CGFloat current = CMTimeGetSeconds(time);
+        NSTimeInterval current = CMTimeGetSeconds(time);
         
         if(weakself.timeBlock) weakself.timeBlock(current);
         
     }];
+}
+- (NSTimeInterval)totalTime{
+ 
+    NSTimeInterval duration = CMTimeGetSeconds(self.player.currentItem.duration);
+    
+    return duration;
 }
 
 

@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A8B2CD2301483F00F75ECD /* libonline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2CC2301483F00F75ECD /* libonline.a */; };
+		18A8B2CF2301486900F75ECD /* libbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2CE2301486800F75ECD /* libbase.a */; };
+		18A8B2D1230148BB00F75ECD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2D0230148BB00F75ECD /* AdSupport.framework */; };
+		18A8B2D3230148C400F75ECD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2D2230148C400F75ECD /* CoreTelephony.framework */; };
+		18A8B2D5230148CC00F75ECD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2D4230148CC00F75ECD /* SystemConfiguration.framework */; };
+		18A8B2D7230148DB00F75ECD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2D6230148DB00F75ECD /* libz.tbd */; };
+		18A8B2D9230148E300F75ECD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2D8230148E300F75ECD /* libsqlite3.tbd */; };
+		18A8B2DB23016D9B00F75ECD /* ControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A8B2DA23016D9B00F75ECD /* ControlBar.xib */; };
+		18A8B2DE2302570700F75ECD /* ControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8B2DD2302570600F75ECD /* ControlBar.m */; };
 		18DBE7D722F145DB00392170 /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBE7D622F145DB00392170 /* CustomScrollView.m */; };
 		18DBE7E022F27A8B00392170 /* JZArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBE7DE22F27A8B00392170 /* JZArticleTableViewCell.m */; };
 		18DBE7E122F27A8B00392170 /* JZArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE7DF22F27A8B00392170 /* JZArticleTableViewCell.xib */; };
 		18DBE7E422F27D8A00392170 /* JZArticleCustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBE7E322F27D8A00392170 /* JZArticleCustomHeader.m */; };
 		18DBE7E622F27DA800392170 /* JZArticleCustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE7E522F27DA800392170 /* JZArticleCustomHeader.xib */; };
-		18F17E1722F7C33100C7674B /* CustomYYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E1622F7C33100C7674B /* CustomYYLabel.m */; };
 		18F17E1A22F7F48500C7674B /* SlowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E1922F7F48500C7674B /* SlowModel.m */; };
 		18F17E1D22F7F56900C7674B /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E1C22F7F56900C7674B /* DataModel.m */; };
 		18F17E2022F7F64400C7674B /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E1F22F7F64400C7674B /* ImageModel.m */; };
@@ -20,6 +28,11 @@
 		18F17E2622F809FD00C7674B /* PostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E2522F809FD00C7674B /* PostModel.m */; };
 		18F17E2722F816DE00C7674B /* JZArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBE7D922F189D400392170 /* JZArticleViewController.m */; };
 		18F17E2E22F9725D00C7674B /* JZAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E2D22F9725D00C7674B /* JZAudioManager.m */; };
+		18F17E3422FC2A0500C7674B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F17E3322FC2A0500C7674B /* AudioToolbox.framework */; };
+		18F17E3722FC2A4C00C7674B /* ExtAudioConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E3522FC2A4B00C7674B /* ExtAudioConverter.m */; };
+		18F17E3A22FC2AC100C7674B /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F17E3922FC2AC100C7674B /* libmp3lame.a */; };
+		18F17E3E2300FBE000C7674B /* ZYTranslateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17E3C2300FBE000C7674B /* ZYTranslateView.m */; };
+		18F17E3F2300FBE000C7674B /* ZYTranslateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F17E3D2300FBE000C7674B /* ZYTranslateView.xib */; };
 		18F77C9D22EFEE1E00D0E15A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F77C9C22EFEE1E00D0E15A /* AppDelegate.m */; };
 		18F77CA322EFEE1E00D0E15A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F77CA122EFEE1E00D0E15A /* Main.storyboard */; };
 		18F77CA622EFEE1E00D0E15A /* ELA_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18F77CA422EFEE1E00D0E15A /* ELA_iOS.xcdatamodeld */; };
@@ -63,6 +76,17 @@
 /* Begin PBXFileReference section */
 		026434682B0EAF850248F4EA /* Pods-ELA-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELA-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELA-iOSUITests/Pods-ELA-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		09714658A4E13B000F5BB01F /* Pods-ELA-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELA-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELA-iOSTests/Pods-ELA-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		18A8B2C92301431D00F75ECD /* FanYiSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanYiSDK.h; sourceTree = "<group>"; };
+		18A8B2CC2301483F00F75ECD /* libonline.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libonline.a; sourceTree = "<group>"; };
+		18A8B2CE2301486800F75ECD /* libbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbase.a; sourceTree = "<group>"; };
+		18A8B2D0230148BB00F75ECD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		18A8B2D2230148C400F75ECD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		18A8B2D4230148CC00F75ECD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18A8B2D6230148DB00F75ECD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		18A8B2D8230148E300F75ECD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		18A8B2DA23016D9B00F75ECD /* ControlBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControlBar.xib; sourceTree = "<group>"; };
+		18A8B2DC2302570600F75ECD /* ControlBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlBar.h; sourceTree = "<group>"; };
+		18A8B2DD2302570600F75ECD /* ControlBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlBar.m; sourceTree = "<group>"; };
 		18DBE7D522F145DB00392170 /* CustomScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
 		18DBE7D622F145DB00392170 /* CustomScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
 		18DBE7D822F189D400392170 /* JZArticleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZArticleViewController.h; sourceTree = "<group>"; };
@@ -73,8 +97,6 @@
 		18DBE7E222F27D8A00392170 /* JZArticleCustomHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZArticleCustomHeader.h; sourceTree = "<group>"; };
 		18DBE7E322F27D8A00392170 /* JZArticleCustomHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZArticleCustomHeader.m; sourceTree = "<group>"; };
 		18DBE7E522F27DA800392170 /* JZArticleCustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZArticleCustomHeader.xib; sourceTree = "<group>"; };
-		18F17E1522F7C33100C7674B /* CustomYYLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomYYLabel.h; sourceTree = "<group>"; };
-		18F17E1622F7C33100C7674B /* CustomYYLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomYYLabel.m; sourceTree = "<group>"; };
 		18F17E1822F7F48500C7674B /* SlowModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlowModel.h; sourceTree = "<group>"; };
 		18F17E1922F7F48500C7674B /* SlowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlowModel.m; sourceTree = "<group>"; };
 		18F17E1B22F7F56900C7674B /* DataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
@@ -88,6 +110,14 @@
 		18F17E2822F91B9100C7674B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		18F17E2C22F9725C00C7674B /* JZAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZAudioManager.h; sourceTree = "<group>"; };
 		18F17E2D22F9725D00C7674B /* JZAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZAudioManager.m; sourceTree = "<group>"; };
+		18F17E3322FC2A0500C7674B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		18F17E3522FC2A4B00C7674B /* ExtAudioConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtAudioConverter.m; sourceTree = "<group>"; };
+		18F17E3622FC2A4B00C7674B /* ExtAudioConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtAudioConverter.h; sourceTree = "<group>"; };
+		18F17E3822FC2ABB00C7674B /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		18F17E3922FC2AC100C7674B /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		18F17E3B2300FBE000C7674B /* ZYTranslateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTranslateView.h; sourceTree = "<group>"; };
+		18F17E3C2300FBE000C7674B /* ZYTranslateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTranslateView.m; sourceTree = "<group>"; };
+		18F17E3D2300FBE000C7674B /* ZYTranslateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYTranslateView.xib; sourceTree = "<group>"; };
 		18F77C9822EFEE1E00D0E15A /* ELA-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ELA-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F77C9B22EFEE1E00D0E15A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18F77C9C22EFEE1E00D0E15A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -139,6 +169,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A8B2D9230148E300F75ECD /* libsqlite3.tbd in Frameworks */,
+				18A8B2D7230148DB00F75ECD /* libz.tbd in Frameworks */,
+				18A8B2D5230148CC00F75ECD /* SystemConfiguration.framework in Frameworks */,
+				18A8B2D3230148C400F75ECD /* CoreTelephony.framework in Frameworks */,
+				18A8B2D1230148BB00F75ECD /* AdSupport.framework in Frameworks */,
+				18A8B2CF2301486900F75ECD /* libbase.a in Frameworks */,
+				18F17E3A22FC2AC100C7674B /* libmp3lame.a in Frameworks */,
+				18F17E3422FC2A0500C7674B /* AudioToolbox.framework in Frameworks */,
+				18A8B2CD2301483F00F75ECD /* libonline.a in Frameworks */,
 				19B857B30862A10226874311 /* libPods-ELA-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +347,13 @@
 		18F77CD722EFF02C00D0E15A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				18A8B2CE2301486800F75ECD /* libbase.a */,
+				18A8B2CC2301483F00F75ECD /* libonline.a */,
+				18A8B2C92301431D00F75ECD /* FanYiSDK.h */,
+				18F17E3922FC2AC100C7674B /* libmp3lame.a */,
+				18F17E3822FC2ABB00C7674B /* lame.h */,
+				18F17E3622FC2A4B00C7674B /* ExtAudioConverter.h */,
+				18F17E3522FC2A4B00C7674B /* ExtAudioConverter.m */,
 				18F17E2C22F9725C00C7674B /* JZAudioManager.h */,
 				18F17E2D22F9725D00C7674B /* JZAudioManager.m */,
 				18F77D2422F03F8800D0E15A /* Constant.h */,
@@ -370,12 +416,16 @@
 			children = (
 				18DBE7DD22F27A8B00392170 /* JZArticleTableViewCell.h */,
 				18DBE7DE22F27A8B00392170 /* JZArticleTableViewCell.m */,
-				18DBE7DF22F27A8B00392170 /* JZArticleTableViewCell.xib */,
 				18DBE7E222F27D8A00392170 /* JZArticleCustomHeader.h */,
 				18DBE7E322F27D8A00392170 /* JZArticleCustomHeader.m */,
 				18DBE7E522F27DA800392170 /* JZArticleCustomHeader.xib */,
-				18F17E1522F7C33100C7674B /* CustomYYLabel.h */,
-				18F17E1622F7C33100C7674B /* CustomYYLabel.m */,
+				18F17E3B2300FBE000C7674B /* ZYTranslateView.h */,
+				18F17E3C2300FBE000C7674B /* ZYTranslateView.m */,
+				18F17E3D2300FBE000C7674B /* ZYTranslateView.xib */,
+				18DBE7DF22F27A8B00392170 /* JZArticleTableViewCell.xib */,
+				18A8B2DA23016D9B00F75ECD /* ControlBar.xib */,
+				18A8B2DC2302570600F75ECD /* ControlBar.h */,
+				18A8B2DD2302570600F75ECD /* ControlBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,6 +481,12 @@
 		5DD9839765352A227994A2A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18A8B2D8230148E300F75ECD /* libsqlite3.tbd */,
+				18A8B2D6230148DB00F75ECD /* libz.tbd */,
+				18A8B2D4230148CC00F75ECD /* SystemConfiguration.framework */,
+				18A8B2D2230148C400F75ECD /* CoreTelephony.framework */,
+				18A8B2D0230148BB00F75ECD /* AdSupport.framework */,
+				18F17E3322FC2A0500C7674B /* AudioToolbox.framework */,
 				39875DF92341576307CCA8F1 /* libPods-ELA-iOS.a */,
 				B22B57D0F07E18BC4FCA3E0F /* libPods-ELA-iOSTests.a */,
 				D20FF8F84EC70EBDD3762362 /* libPods-ELA-iOSUITests.a */,
@@ -561,11 +617,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F77CFB22F038BF00D0E15A /* Localizable.strings in Resources */,
+				18F17E3F2300FBE000C7674B /* ZYTranslateView.xib in Resources */,
 				18F77CAB22EFEE2000D0E15A /* LaunchScreen.storyboard in Resources */,
 				18DBE7E122F27A8B00392170 /* JZArticleTableViewCell.xib in Resources */,
 				18F77D1C22F03E7100D0E15A /* JZHomeCell.xib in Resources */,
 				18F77D0822F03B4C00D0E15A /* AutoGenStrings.py in Resources */,
 				18F77CA822EFEE2000D0E15A /* Assets.xcassets in Resources */,
+				18A8B2DB23016D9B00F75ECD /* ControlBar.xib in Resources */,
 				18DBE7E622F27DA800392170 /* JZArticleCustomHeader.xib in Resources */,
 				18F77CA322EFEE1E00D0E15A /* Main.storyboard in Resources */,
 			);
@@ -705,8 +763,11 @@
 				18F17E2722F816DE00C7674B /* JZArticleViewController.m in Sources */,
 				18DBE7E422F27D8A00392170 /* JZArticleCustomHeader.m in Sources */,
 				18F17E2622F809FD00C7674B /* PostModel.m in Sources */,
+				18F17E3722FC2A4C00C7674B /* ExtAudioConverter.m in Sources */,
 				18F77CF722F0325500D0E15A /* JZHomeTableViewCell.m in Sources */,
+				18A8B2DE2302570700F75ECD /* ControlBar.m in Sources */,
 				18F77CA622EFEE1E00D0E15A /* ELA_iOS.xcdatamodeld in Sources */,
+				18F17E3E2300FBE000C7674B /* ZYTranslateView.m in Sources */,
 				18F17E2022F7F64400C7674B /* ImageModel.m in Sources */,
 				18F77CAE22EFEE2000D0E15A /* main.m in Sources */,
 				18F77CEC22F0215900D0E15A /* JZTabBarController.m in Sources */,
@@ -721,7 +782,6 @@
 				18F17E1D22F7F56900C7674B /* DataModel.m in Sources */,
 				18F17E2322F7F70E00C7674B /* TextModel.m in Sources */,
 				18DBE7E022F27A8B00392170 /* JZArticleTableViewCell.m in Sources */,
-				18F17E1722F7C33100C7674B /* CustomYYLabel.m in Sources */,
 				18F77CE922F01AA300D0E15A /* BaseTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -918,12 +978,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9KCEX3M8Z;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ELA-iOS/PrefixHeader.pch";
 				INFOPLIST_FILE = "ELA-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ELA-iOS/Util",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacob.ela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -938,12 +1003,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9KCEX3M8Z;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ELA-iOS/PrefixHeader.pch";
 				INFOPLIST_FILE = "ELA-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ELA-iOS/Util",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacob.ela;
 				PRODUCT_NAME = "$(TARGET_NAME)";

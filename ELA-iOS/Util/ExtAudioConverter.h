@@ -21,8 +21,8 @@ enum BitDepth{
 @interface ExtAudioConverter : NSObject
 
 //Must set
-@property(nonatomic,retain)NSString* inputFile;//Absolute path
-@property(nonatomic,retain)NSString* outputFile;//Absolute path
+@property(nonatomic,retain)NSURL* inputFile;//Absolute path
+@property(nonatomic,retain)NSURL* outputFile;//Absolute path
 
 //optional
 @property(nonatomic,assign)int outputSampleRate;//Default 44100.0

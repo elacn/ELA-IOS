@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^PeriodicTimeBlock)(long long scale);
+typedef void(^PeriodicTimeBlock)(NSTimeInterval scale);
 
 typedef void(^DownloadProgressBlock)(double progress);
 
@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, JZAudioState) {
 
 @property (nonatomic, assign, readonly) long long currentTime;
 
-@property (nonatomic, assign, readonly) long long totalTime;
+@property (nonatomic, assign, readonly) NSTimeInterval totalTime;
 
 @property (nonatomic, copy) PeriodicTimeBlock timeBlock;
 
@@ -50,7 +50,6 @@ typedef NS_ENUM(NSUInteger, JZAudioState) {
 - (void)nextWithUrl:(NSString *)url;
 
 - (void)seekTo:(float)time completionHandler:(void(^)(BOOL finished))handler;
-
 
 
 @end

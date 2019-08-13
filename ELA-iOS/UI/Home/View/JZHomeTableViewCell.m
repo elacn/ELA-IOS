@@ -29,6 +29,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.cardImage.layer.cornerRadius = 10;
+    self.cardImage.layer.masksToBounds = YES;
 
 }
 

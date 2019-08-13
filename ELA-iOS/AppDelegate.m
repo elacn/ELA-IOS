@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "JZTabBarController.h"
+#import "FanYiSDK.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    YDTranslateInstance *yd = [YDTranslateInstance sharedInstance];
+    yd.appKey = @"61d6072884b572c6";
     
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 

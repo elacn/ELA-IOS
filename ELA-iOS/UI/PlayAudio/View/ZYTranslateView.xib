@@ -29,205 +29,50 @@
                     </constraints>
                     <state key="normal" image="info.png"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-gb-GGp">
-                    <rect key="frame" x="15" y="44.5" width="290" height="96"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-gb-GGp">
+                    <rect key="frame" x="15" y="44.5" width="290" height="61"/>
                     <attributedString key="attributedText">
-                        <fragment content="conj. ……可能是；由于以至于；">
-                            <attributes>
-                                <color key="NSColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </attributes>
-                        </fragment>
                         <fragment>
-                            <string key="content" base64-UTF8="YES">
-Cg
+                            <string key="content">conj. ……可能是；由于以至于；
+adv. 那样，那么；（非正式）很，非常
+det. 那，那个；那种
+pron. 那， 那个；那，那种；（非正式）就那样
 </string>
                             <attributes>
-                                <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="adv. 那样，那么；（非正式）很，非常">
-                            <attributes>
-                                <color key="NSColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </attributes>
-                        </fragment>
-                        <fragment>
-                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                            <attributes>
-                                <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="det. 那，那个；那种">
-                            <attributes>
-                                <color key="NSColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </attributes>
-                        </fragment>
-                        <fragment>
-                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                            <attributes>
-                                <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </attributes>
-                        </fragment>
-                        <fragment content="pron. 那， 那个；那，那种；（非正式）就那样">
-                            <attributes>
-                                <color key="NSColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </attributes>
-                        </fragment>
-                        <fragment>
-                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                            <attributes>
-                                <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>
                         <fragment content="n. (That) （越）塔特（人名）">
                             <attributes>
-                                <color key="NSColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <font key="NSFont" size="13" name="STHeiti"/>
-                                <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="5" headIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                    <tabStops>
-                                        <textTab alignment="left" location="11">
-                                            <options/>
-                                        </textTab>
-                                        <textTab alignment="natural" location="36">
-                                            <options/>
-                                        </textTab>
-                                    </tabStops>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.19216" green="0.19216" blue="0.19216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="3" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LmP-7g-G58">
+                    <rect key="frame" x="0.0" y="149" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="qum-FS-ykv"/>
+                    </constraints>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1z-ct-0rb">
                     <rect key="frame" x="0.0" y="150" width="375" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0e-UM-NvD">
-                            <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
                             <color key="backgroundColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="添加生词">
                                 <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </state>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5n-hf-Arc">
-                            <rect key="frame" x="187" y="0.0" width="1" height="50"/>
-                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="1" id="9F2-4R-1wO"/>
-                            </constraints>
-                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6py-4k-RqM">
-                            <rect key="frame" x="188" y="0.0" width="187" height="50"/>
+                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
                             <color key="backgroundColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="关闭">
@@ -245,18 +90,31 @@ Cg
                         <constraint firstItem="6py-4k-RqM" firstAttribute="height" secondItem="b0e-UM-NvD" secondAttribute="height" id="rkW-s1-Kfh"/>
                     </constraints>
                 </stackView>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiX-dd-x4C">
+                    <rect key="frame" x="187" y="160" width="1" height="30"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="Tsy-S6-1uy"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="r1z-ct-0rb" firstAttribute="bottom" secondItem="gqW-b8-7NI" secondAttribute="bottom" id="4Wi-lH-5JH"/>
                 <constraint firstItem="gqW-b8-7NI" firstAttribute="trailing" secondItem="fmb-p8-8F2" secondAttribute="trailing" constant="15" id="6YM-V0-JQQ"/>
+                <constraint firstItem="LmP-7g-G58" firstAttribute="leading" secondItem="MRq-f6-gWp" secondAttribute="leading" id="7nn-H6-JsT"/>
                 <constraint firstItem="fmb-p8-8F2" firstAttribute="top" secondItem="gqW-b8-7NI" secondAttribute="top" constant="20" id="9Ox-gT-3gR"/>
                 <constraint firstItem="r1z-ct-0rb" firstAttribute="leading" secondItem="gqW-b8-7NI" secondAttribute="leading" id="V4m-xt-0fI"/>
+                <constraint firstItem="BiX-dd-x4C" firstAttribute="centerX" secondItem="r1z-ct-0rb" secondAttribute="centerX" id="Ws7-AP-pk4"/>
+                <constraint firstItem="r1z-ct-0rb" firstAttribute="top" secondItem="LmP-7g-G58" secondAttribute="bottom" id="eP6-da-AfR"/>
                 <constraint firstItem="fmb-p8-8F2" firstAttribute="leading" secondItem="bxA-t7-GYu" secondAttribute="trailing" constant="15" id="f2X-ri-N4F"/>
+                <constraint firstItem="BiX-dd-x4C" firstAttribute="bottom" secondItem="r1z-ct-0rb" secondAttribute="bottom" constant="-10" id="hZH-xe-eHS"/>
                 <constraint firstItem="bxA-t7-GYu" firstAttribute="top" secondItem="gqW-b8-7NI" secondAttribute="top" constant="15" id="pWo-PV-UWf"/>
                 <constraint firstItem="bxA-t7-GYu" firstAttribute="leading" secondItem="gqW-b8-7NI" secondAttribute="leading" constant="15" id="ryj-dy-luE"/>
+                <constraint firstAttribute="trailing" secondItem="LmP-7g-G58" secondAttribute="trailing" id="vWh-bm-eDc"/>
                 <constraint firstItem="nMq-gb-GGp" firstAttribute="top" secondItem="bxA-t7-GYu" secondAttribute="bottom" constant="10" id="vhS-OU-6hO"/>
                 <constraint firstItem="gqW-b8-7NI" firstAttribute="trailing" secondItem="r1z-ct-0rb" secondAttribute="trailing" id="xDC-Jp-LAb"/>
+                <constraint firstItem="BiX-dd-x4C" firstAttribute="top" secondItem="r1z-ct-0rb" secondAttribute="top" constant="10" id="ywl-Iq-tOa"/>
                 <constraint firstItem="nMq-gb-GGp" firstAttribute="leading" secondItem="bxA-t7-GYu" secondAttribute="leading" id="z0j-Fi-Nye"/>
                 <constraint firstItem="nMq-gb-GGp" firstAttribute="trailing" secondItem="bxA-t7-GYu" secondAttribute="trailing" id="zK4-bo-ls9"/>
             </constraints>

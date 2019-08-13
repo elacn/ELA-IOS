@@ -10,6 +10,8 @@
 #import <YYText.h>
 #import <SVProgressHUD.h>
 
+#import "FanYiSDK.h"
+
 @interface JZArticleTableViewCell ()
 
 @property (nonatomic, strong) YYLabel *englishYYLabel;
@@ -30,9 +32,9 @@
     [super setSelected:selected animated:animated];
 
     if (selected) {
-        _englishYYLabel.textColor = [UIColor greenColor];
+        _englishYYLabel.textColor = [UIColor colorWithRed:86 / 255.0 green:171 / 255.0 blue:3 / 255.0 alpha:1];
         
-        _chineseLabel.textColor = [UIColor greenColor];
+        _chineseLabel.textColor = [UIColor colorWithRed:86 / 255.0 green:171 / 255.0 blue:3 / 255.0 alpha:1];
     
     }
     
@@ -63,6 +65,7 @@
     englishYYLabel.font = [UIFont fontWithName:@"Georgia-BoldItalic" size:14];
     englishYYLabel.lineBreakMode = NSLineBreakByWordWrapping;
     englishYYLabel.numberOfLines = 0;
+    englishYYLabel.textColor = [UIColor colorWithRed:86 / 255.0 green:171 / 255.0 blue:3 / 255.0 alpha:1];
     englishYYLabel.preferredMaxLayoutWidth = self.width - 30;
     
     [self.contentView addSubview:englishYYLabel];
@@ -87,12 +90,57 @@
         
     }];
     
+    
+    
+    UIView *englishMaskView = [UIView new];
+    UIView *chineseMaskView = [UIView new];
+    _englishMaskView = englishMaskView;
+    _chineseMaskView = chineseMaskView;
+
+    englishMaskView.alpha = 0;
+    chineseMaskView.alpha = 0;
+    
+    englishMaskView.backgroundColor = [UIColor grayColor];
+    chineseMaskView.backgroundColor = [UIColor grayColor];
+    
+    englishMaskView.userInteractionEnabled = YES;
+    chineseMaskView.userInteractionEnabled = YES;
+
+    UITapGestureRecognizer *englishtap = [[UITapGestureRecognizer alloc]init];
+    UITapGestureRecognizer *chinesetap = [[UITapGestureRecognizer alloc]init];
+    
+    [englishtap addTarget:self action:@selector(clickMaskVanish:)];
+    [chinesetap addTarget:self action:@selector(clickMaskVanish:)];
+    
+    [englishMaskView addGestureRecognizer:englishtap];
+    [chineseMaskView addGestureRecognizer:chinesetap];
+    
+    
+    [self.contentView addSubview:englishMaskView];
+    [self.contentView addSubview:chineseMaskView];
+    
+    [englishMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(englishYYLabel);
+    }];
+    
+    [chineseMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(chinesLabel);
+    }];
+    
+}
+
+-(void)clickMaskVanish:(UITapGestureRecognizer*)tapgesturerecognizer{
+    self.englishMaskView.alpha = 0;
+    self.chineseMaskView.alpha = 0;
 }
 
 
 - (void)setModel:(TextModel *)model{
     
     _model = model;
+    
+    
+    
     
     NSArray<NSString *> *stringArray = [model.english componentsSeparatedByString:@" "];
     
@@ -113,6 +161,7 @@
     
     NSInteger startInde = 0;
     
+    weakSelf(self);
     for (int i = 0; i < stringArray.count; i++) {
         
         NSString *tempString = [stringArray objectAtIndex:i];
@@ -121,6 +170,12 @@
             
             NSLog(@"%@",[text.string substringWithRange:range]);
             
+
+            if( [weakself.clickdelegate respondsToSelector:@selector(clickText:andCell:)]){
+
+                [weakself.clickdelegate clickText:[text.string substringWithRange:range] andCell:weakself];
+            }
+        
         }];
         
         startInde+=tempString.length+1;
@@ -144,6 +199,29 @@
     
     self.chineseLabel.attributedText = mastring1;
     
+}
+
+- (void)translateText:(NSString *)text{
+    
+    
+    YDTranslateRequest * translateRequest  = [YDTranslateRequest request];
+    
+    YDTranslateParameters *parameters = [YDTranslateParameters targeting];
+    parameters.source = text;
+    parameters.from = YDLanguageTypeChinese;
+    parameters.to = YDLanguageTypeEnglish;
+    translateRequest.translateParameters = parameters;
+    
+    [translateRequest lookup:text WithCompletionHandler:^(YDTranslateRequest *request, YDTranslate *response, NSError *error) {
+        if (error) {
+            //查询失败
+            NSLog(@"%@",error);
+        } else {
+            //查询成功
+             NSLog(@"%@",response.translation);
+            [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"%@",response.explains]];
+        }
+    }];
 }
 
 @end

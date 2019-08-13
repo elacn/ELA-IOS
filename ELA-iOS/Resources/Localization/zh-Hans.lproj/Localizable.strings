@@ -9,3 +9,9 @@
 "MineTabBarTitle" = "我的";
 "ViewString" = "阅读";
 "DownloadNotification" = "下载中";
+"AudioSpeedString" = "语速";
+"Cancel" = "取消";
+"AudioSpeedInfo" = "选择您想要音频播放的速度";
+"ChooseLanguage" = "语言选择";
+"ChooseLanguageDetail" = "选择要显示出来的语言";
+

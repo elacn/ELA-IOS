@@ -153,7 +153,7 @@ void startConvertMP3(ExtAudioConverterSettings* settings){
     }
     
     //Create ExtAudioFileRef
-    NSURL* sourceURL = [NSURL fileURLWithPath:self.inputFile];
+    NSURL* sourceURL = self.inputFile;
     CheckError(ExtAudioFileOpenURL((__bridge CFURLRef)sourceURL,
                                    &settings.inputFile),
                "ExtAudioFileOpenURL failed");
@@ -190,7 +190,7 @@ void startConvertMP3(ExtAudioConverterSettings* settings){
     
     //Create output file
     //if output file path is invalid, this returns an error with 'wht?'
-    NSURL* outputURL = [NSURL fileURLWithPath:self.outputFile];
+    NSURL* outputURL = self.outputFile;
     
     //create output file
     settings.outputFilePath = (__bridge CFStringRef)(self.outputFile);

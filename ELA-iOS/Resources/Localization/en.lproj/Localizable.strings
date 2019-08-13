@@ -10,3 +10,8 @@
 "MineTabBarTitle" = "Mine";
 "ViewString" = "Views";
 "DownloadNotification" = "Downloading...";
+"AudioSpeedString" = "Audio Speed";
+"Cancel" = "Cancel";
+"AudioSpeedInfo" = "Select speed that you want your audio to play at";
+"ChooseLanguage" = "Choose Language";
+"ChooseLanguageDetail" = "Choose which languages to show";
