@@ -19,6 +19,7 @@
 #import <SVProgressHUD.h>
 #import <AFNetworking.h>
 #import "ControlBar.h"
+#import "JZSpeakingViewController.h"
 
 #import "ExtAudioConverter.h"
 typedef NS_ENUM(NSUInteger, ShowLanguage) {
@@ -94,6 +95,8 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
     
     [SVProgressHUD showWithStatus:NSLocalizedString(@"DownloadNotification", @"Downloading...")];
     
+    [self setupNavigationBar];
+    
     [self setupControlBar];
     
     [self setupTableView];
@@ -106,14 +109,64 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
     
 }
 
+
+-(void)setupNavigationBar{
+    UIBarButtonItem *speakingButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"blackplayicon"] style:UIBarButtonItemStylePlain target:self action:@selector(clickBarButton:)];
+    speakingButton.tag = 0;
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"blackplayicon"] style:UIBarButtonItemStylePlain target:self action:@selector(clickBarButton:)];
+    shareButton.tag = 1;
+    UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"blackplayicon"] style:UIBarButtonItemStylePlain target:self action:@selector(clickBarButton:)];
+    favoriteButton.tag = 2;
+    self.navigationItem.rightBarButtonItems = @[speakingButton,favoriteButton,shareButton];
+    
+}
+
+-(void)clickBarButton:(UIBarButtonItem*)button{
+    if(button.tag == 0){
+        
+        TextModel *model = self.datasource[self.playIndex];
+        
+        CGFloat value = model.end.floatValue - model.start.floatValue;
+        
+        self.timerRemaining = value * [JZAudioManager manager].speed;
+        [[JZAudioManager manager]pause];
+        [[JZAudioManager manager] seekTo:model.start.floatValue/ 1000 completionHandler:^(BOOL finished) {
+            
+        }];
+        [self.timer invalidate];
+        [self.controlbar resetButtons];
+        
+        
+        JZSpeakingViewController *speakingVC = [[JZSpeakingViewController alloc]init];
+        
+        speakingVC.title = self.title;
+        
+        speakingVC.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"BackBarButton", @"Back") style:UIBarButtonItemStylePlain target:nil action:nil];
+        
+        speakingVC.model = self.model;
+        
+        speakingVC.textData = self.datasource;
+        
+        
+        [self.navigationController pushViewController:speakingVC animated:YES];
+        
+    }
+    else if(button.tag == 1){
+        
+    }
+    else{
+        
+    }
+    
+}
+
 - (void)checkDownloadMP3{
     NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
     
     NSURL *mp3URL = [NSURL URLWithString:self.model.data.url];
     
-    NSString *fileName = mp3URL.lastPathComponent;;
+    NSString *fileName = [NSString stringWithFormat:@"%@.wav",[mp3URL.lastPathComponent componentsSeparatedByString:@"."].firstObject];
     
-
     NSString *filePath = [[documentsDirectoryURL URLByAppendingPathComponent:fileName] path];
     
     BOOL isDirectory = NO;
@@ -166,7 +219,7 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
 
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         
-        if(error){
+        if(error || filePath == nil){
             
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"DownloadError", @"Download Error")];
             

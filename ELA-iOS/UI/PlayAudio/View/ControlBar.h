@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)updateProgressView:(float)value;
 
+-(void)resetButtons;
 @end
 
 NS_ASSUME_NONNULL_END

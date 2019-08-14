@@ -74,4 +74,12 @@
 
 }
 
+
+-(void)resetButtons{
+ 
+    self.playpauseButton.selected = YES;
+    
+    
+}
+
 @end

@@ -16,6 +16,9 @@
 		18A8B2D9230148E300F75ECD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A8B2D8230148E300F75ECD /* libsqlite3.tbd */; };
 		18A8B2DB23016D9B00F75ECD /* ControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A8B2DA23016D9B00F75ECD /* ControlBar.xib */; };
 		18A8B2DE2302570700F75ECD /* ControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8B2DD2302570600F75ECD /* ControlBar.m */; };
+		18A8B2E123039BEB00F75ECD /* JZSpeakingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8B2E023039BEB00F75ECD /* JZSpeakingViewController.m */; };
+		18A8B2E423039E4000F75ECD /* JZSpeakingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8B2E323039E4000F75ECD /* JZSpeakingViewCell.m */; };
+		18A8B2E623039EA700F75ECD /* JZSpeakingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A8B2E523039EA700F75ECD /* JZSpeakingViewCell.xib */; };
 		18DBE7D722F145DB00392170 /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBE7D622F145DB00392170 /* CustomScrollView.m */; };
 		18DBE7E022F27A8B00392170 /* JZArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBE7DE22F27A8B00392170 /* JZArticleTableViewCell.m */; };
 		18DBE7E122F27A8B00392170 /* JZArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DBE7DF22F27A8B00392170 /* JZArticleTableViewCell.xib */; };
@@ -87,6 +90,11 @@
 		18A8B2DA23016D9B00F75ECD /* ControlBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControlBar.xib; sourceTree = "<group>"; };
 		18A8B2DC2302570600F75ECD /* ControlBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlBar.h; sourceTree = "<group>"; };
 		18A8B2DD2302570600F75ECD /* ControlBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControlBar.m; sourceTree = "<group>"; };
+		18A8B2DF23039BEB00F75ECD /* JZSpeakingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZSpeakingViewController.h; sourceTree = "<group>"; };
+		18A8B2E023039BEB00F75ECD /* JZSpeakingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZSpeakingViewController.m; sourceTree = "<group>"; };
+		18A8B2E223039E4000F75ECD /* JZSpeakingViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZSpeakingViewCell.h; sourceTree = "<group>"; };
+		18A8B2E323039E4000F75ECD /* JZSpeakingViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JZSpeakingViewCell.m; sourceTree = "<group>"; };
+		18A8B2E523039EA700F75ECD /* JZSpeakingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JZSpeakingViewCell.xib; sourceTree = "<group>"; };
 		18DBE7D522F145DB00392170 /* CustomScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
 		18DBE7D622F145DB00392170 /* CustomScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
 		18DBE7D822F189D400392170 /* JZArticleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JZArticleViewController.h; sourceTree = "<group>"; };
@@ -443,6 +451,8 @@
 		18F77CE422EFF3D200D0E15A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18A8B2DF23039BEB00F75ECD /* JZSpeakingViewController.h */,
+				18A8B2E023039BEB00F75ECD /* JZSpeakingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -457,6 +467,9 @@
 		18F77CE622EFF3D200D0E15A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18A8B2E223039E4000F75ECD /* JZSpeakingViewCell.h */,
+				18A8B2E323039E4000F75ECD /* JZSpeakingViewCell.m */,
+				18A8B2E523039EA700F75ECD /* JZSpeakingViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -622,6 +635,7 @@
 				18DBE7E122F27A8B00392170 /* JZArticleTableViewCell.xib in Resources */,
 				18F77D1C22F03E7100D0E15A /* JZHomeCell.xib in Resources */,
 				18F77D0822F03B4C00D0E15A /* AutoGenStrings.py in Resources */,
+				18A8B2E623039EA700F75ECD /* JZSpeakingViewCell.xib in Resources */,
 				18F77CA822EFEE2000D0E15A /* Assets.xcassets in Resources */,
 				18A8B2DB23016D9B00F75ECD /* ControlBar.xib in Resources */,
 				18DBE7E622F27DA800392170 /* JZArticleCustomHeader.xib in Resources */,
@@ -770,6 +784,7 @@
 				18F17E3E2300FBE000C7674B /* ZYTranslateView.m in Sources */,
 				18F17E2022F7F64400C7674B /* ImageModel.m in Sources */,
 				18F77CAE22EFEE2000D0E15A /* main.m in Sources */,
+				18A8B2E123039BEB00F75ECD /* JZSpeakingViewController.m in Sources */,
 				18F77CEC22F0215900D0E15A /* JZTabBarController.m in Sources */,
 				18F77D2922F04BDE00D0E15A /* JZHomePageViewController.m in Sources */,
 				18F77D2E22F12C0100D0E15A /* UIView+FrameView.m in Sources */,
@@ -778,6 +793,7 @@
 				18F17E2E22F9725D00C7674B /* JZAudioManager.m in Sources */,
 				18F77CF222F02D5900D0E15A /* JZHomeTableViewController.m in Sources */,
 				18DBE7D722F145DB00392170 /* CustomScrollView.m in Sources */,
+				18A8B2E423039E4000F75ECD /* JZSpeakingViewCell.m in Sources */,
 				18F17E1A22F7F48500C7674B /* SlowModel.m in Sources */,
 				18F17E1D22F7F56900C7674B /* DataModel.m in Sources */,
 				18F17E2322F7F70E00C7674B /* TextModel.m in Sources */,
