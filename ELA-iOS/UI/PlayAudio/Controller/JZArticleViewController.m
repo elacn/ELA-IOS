@@ -165,17 +165,32 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
     
     NSURL *mp3URL = [NSURL URLWithString:self.model.data.url];
     
-    NSString *fileName = [NSString stringWithFormat:@"%@.wav",[mp3URL.lastPathComponent componentsSeparatedByString:@"."].firstObject];
+    NSString *fileName = [mp3URL.lastPathComponent componentsSeparatedByString:@"."].firstObject;
     
-    NSString *filePath = [[documentsDirectoryURL URLByAppendingPathComponent:fileName] path];
+    NSURL  *inputFile = [documentsDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3",fileName]];
+    
+    NSURL  *outputFile = [documentsDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",fileName]];
     
     BOOL isDirectory = NO;
     
-    BOOL isExis = [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDirectory];
+    BOOL isExis = [[NSFileManager defaultManager] fileExistsAtPath:[inputFile path] isDirectory:&isDirectory];
     
     if(isExis){
-        
-         [self playAudioWithPath:filePath];
+    
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+           
+            ExtAudioConverter* converter = [[ExtAudioConverter alloc] init];
+            converter.inputFile = inputFile;
+            converter.outputFile = outputFile;
+            converter.outputFileType = kAudioFileWAVEType;
+            [converter convert];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //回调或者说是通知主线程刷新，
+                [self playAudioWithPath:[outputFile path]];
+            });
+
+        });
         
     }else{
         
@@ -194,7 +209,7 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
     
     [self.controlbar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.bottom.mas_offset(0);
-        make.height.equalTo(@(150));
+        make.height.equalTo(@(100));
     }];
 }
 
@@ -230,10 +245,8 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
     
         NSString  *fileName = [response.suggestedFilename componentsSeparatedByString:@"."].firstObject;
-        
+        NSURL  *filePath = [documentsDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3",fileName]];
         NSURL  *outputFile = [documentsDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.wav",fileName]];
-        
-//        [weakself checkFilePatch:downloadAudioFile];
         
         ExtAudioConverter* converter = [[ExtAudioConverter alloc] init];
         converter.inputFile = filePath;
@@ -349,7 +362,7 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
         
         if(self.playIndex>=self.datasource.count-1){
             
-            Time = Time + 1 * 1000;
+            Time = Time + 5 * 1000;
         }
     
         __weak JZArticleViewController *weakSelf = self;
@@ -487,10 +500,13 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
                 [self.timer invalidate];
             }
             else{
-                
-                [[JZAudioManager manager] play];
-                [self playWithTimer:self.timerRemaining];
-                self.timerRemaining = 0;
+                [[JZAudioManager manager] seekTo:self.datasource[self.playIndex].start.floatValue / 1000 completionHandler:^(BOOL finished) {
+                   
+                    [[JZAudioManager manager] play];
+                    [self playWithTimer:self.timerRemaining];
+                    self.timerRemaining = 0;
+                    
+                }];
             }
             break;
         case 3:
@@ -555,17 +571,20 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
         
         self.showType = ShowLanguageEnglish;
         [self.tableView reloadData];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.playIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }];
     
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"中文" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.showType = ShowLanguageChinese;
         [self.tableView reloadData];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.playIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
     }];
     
     
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"English + 中文" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.showType = ShowLanguageAll;
         [self.tableView reloadData];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.playIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
     }];
     
     UIAlertAction *action4 = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -625,12 +644,22 @@ typedef NS_ENUM(NSUInteger, ShowLanguage) {
     
     [_timer invalidate];
     
+    NSLog(@"%s",__func__);
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[JZAudioManager manager] pause];
-
     [SVProgressHUD dismiss];
+    
+    NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+    
+    NSURL *mp3URL = [NSURL URLWithString:self.model.data.url];
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@.wav",[mp3URL.lastPathComponent componentsSeparatedByString:@"."].firstObject];
+    
+    NSString *filePath = [[documentsDirectoryURL URLByAppendingPathComponent:fileName] path];
+    
+    [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
 }
 
 @end

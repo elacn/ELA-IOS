@@ -12,6 +12,6 @@
 "AudioSpeedString" = "语速";
 "Cancel" = "取消";
 "AudioSpeedInfo" = "选择您想要音频播放的速度";
-"ChooseLanguage" = "语言选择";
+"ChooseLanguage" = "显示语言";
 "ChooseLanguageDetail" = "选择要显示出来的语言";
 "BackBarButton" = "返回";

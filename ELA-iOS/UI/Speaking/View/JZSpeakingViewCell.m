@@ -81,18 +81,21 @@
     
     
     UIButton *playAudio = [[UIButton alloc]init];
+    playAudio.tag = 0;
     playAudio.frame = CGRectMake(0, 0, 50, 50);
     [playAudio setImage:[UIImage imageNamed:@"video_pause"] forState:UIControlStateNormal];
     [playAudio setImage:[UIImage imageNamed:@"video_play"] forState:UIControlStateSelected];
     playAudio.imageView.contentMode = UIViewContentModeCenter;
     
     UIButton *recordVoice = [[UIButton alloc]init];
+    playAudio.tag = 1;
     recordVoice.frame = CGRectMake(0, 0, 50, 50);
     [recordVoice setImage:[UIImage imageNamed:@"blackrecordicon"] forState:UIControlStateNormal];
     [recordVoice setImage:[UIImage imageNamed:@"greenrecordicon"] forState:UIControlStateSelected];
     recordVoice.imageView.contentMode = UIViewContentModeCenter;
     
     UIButton *playRecording = [[UIButton alloc]init];
+    playAudio.tag = 2;
     playRecording.frame = CGRectMake(0, 0, 50, 50);
     [playRecording setImage:[UIImage imageNamed:@"greenplayicon"] forState:UIControlStateNormal];
     [playRecording setImage:[UIImage imageNamed:@"greenpauseicon"] forState:UIControlStateSelected];
@@ -165,7 +168,6 @@
      
                      range:NSMakeRange(0, [textData.english length])];
     
-    
     NSInteger startInde = 0;
     
     for (int i = 0; i < stringArray.count; i++) {
@@ -212,5 +214,6 @@
     [super setSelected:selected animated:animated];
 
 }
+
 
 @end

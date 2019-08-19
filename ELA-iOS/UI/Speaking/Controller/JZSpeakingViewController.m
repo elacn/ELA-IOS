@@ -8,13 +8,16 @@
 
 #import "JZSpeakingViewController.h"
 #import "JZspeakingViewCell.h"
+#import "JZAudioManager.h"
 
 @interface JZSpeakingViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *speakingTableView;
 
-
 @property (nonatomic, assign) NSInteger selectedIndex;
+
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation JZSpeakingViewController
@@ -38,7 +41,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.textData.count;
 }
 
 
@@ -65,6 +68,36 @@
     
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
+    [self playAudioWithIndex:indexPath.row];
+    
+}
+
+- (void)playAudioWithIndex:(NSInteger)index{
+ 
+    [self.timer invalidate];
+    
+    TextModel *model = [self.textData objectAtIndex:index];
+    
+    [[JZAudioManager manager] pause];
+    
+    [[JZAudioManager manager] seekTo:model.start.floatValue / 1000 completionHandler:^(BOOL finished) {
+        [[JZAudioManager manager] play];
+    }];
+    
+    CGFloat vlaue = (model.end.doubleValue - model.start.doubleValue) / [JZAudioManager manager].speed;
+    
+    if(index >= self.textData.count-1){
+        
+        vlaue = vlaue + 5 * 1000;
+    }
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:vlaue * 0.001 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        
+        [[JZAudioManager manager] pause];
+       
+    }];
+    
+    self.timer = timer;
 }
 
 
@@ -72,6 +105,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupTableView];
+    
 }
 
 -(void)setupTableView{
@@ -83,6 +117,8 @@
     }];
     
     [self.speakingTableView reloadData];
+    
+    [self playAudioWithIndex:0];
 }
 
 /*
@@ -94,5 +130,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)viewWillDisappear:(BOOL)animated{
+ 
+    [[JZAudioManager manager] pause];
+}
+
+- (void)dealloc{
+ 
+    [self.timer invalidate];
+    
+    NSLog(@"%s",__func__);
+}
 
 @end

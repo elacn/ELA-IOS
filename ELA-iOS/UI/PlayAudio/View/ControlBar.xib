@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="cb6-vv-Nb8" customClass="ControlBar">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lU4-iV-sf8">
@@ -28,7 +28,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZM-Iu-AhB">
-                    <rect key="frame" x="0.0" y="50" width="375" height="70"/>
+                    <rect key="frame" x="0.0" y="30" width="375" height="70"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNl-RU-pkH">
                             <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
@@ -79,7 +79,7 @@
                         <constraint firstItem="CYV-1y-hZM" firstAttribute="height" secondItem="dNl-RU-pkH" secondAttribute="height" id="z1E-a8-wHZ"/>
                     </constraints>
                 </stackView>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S1B-rI-hal">
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S1B-rI-hal">
                     <rect key="frame" x="66" y="24.5" width="253.5" height="2"/>
                     <color key="tintColor" red="0.49803921568627452" green="0.85098039215686272" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </progressView>
@@ -116,11 +116,11 @@
         </view>
     </objects>
     <resources>
-        <image name="backicon" width="30" height="30"/>
-        <image name="pauseicon" width="50" height="50"/>
-        <image name="playicon" width="50" height="50"/>
-        <image name="skipicon" width="30" height="30"/>
-        <image name="speedicon" width="30" height="30"/>
-        <image name="translateicon" width="30" height="30"/>
+        <image name="backicon" width="60" height="60"/>
+        <image name="pauseicon" width="100" height="100"/>
+        <image name="playicon" width="100" height="100"/>
+        <image name="skipicon" width="60" height="60"/>
+        <image name="speedicon" width="60" height="60"/>
+        <image name="translateicon" width="60" height="60"/>
     </resources>
 </document>

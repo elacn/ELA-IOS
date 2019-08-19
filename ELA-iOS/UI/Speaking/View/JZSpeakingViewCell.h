@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol JZSpeakingButtonDelegate <NSObject>
+
+//- (void)click
+
+@end
+
 @interface JZSpeakingViewCell : UITableViewCell
 
 @property (nonatomic, strong) TextModel* textData;

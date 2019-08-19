@@ -123,7 +123,12 @@ void startConvertMP3(ExtAudioConverterSettings* settings){
                                                framesCount,
                                                mp3_buffer,
                                                0);
-        size_t result = fwrite(mp3_buffer,
+//        size_t result = fwrite(mp3_buffer,
+//                               1,
+//                               write,
+//                               outputFile);
+        
+                          fwrite(mp3_buffer,
                                1,
                                write,
                                outputFile);
